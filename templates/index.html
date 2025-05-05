@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -255,4 +256,263 @@
   </footer>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPL Victory Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function validateTeams() {
+      var battingTeam = document.getElementById("batting_team").value;
+      var bowlingTeam = document.getElementById("bowling_team").value;
+
+      if (battingTeam === bowlingTeam) {
+        alert("Batting Team and Bowling Team cannot be the same.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100 min-h-screen text-black">
+  <!-- Predictor Section -->
+  <div class="relative isolate">
+    <svg
+      class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+      aria-hidden="true">
+      <defs>
+        <pattern id="pattern-grid" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+          <path d="M100 200V.5M.5 .5H200" fill="none" />
+        </pattern>
+      </defs>
+      <svg x="50%" y="-1" class="overflow-visible fill-indigo-900/20">
+        <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+          stroke-width="0" />
+      </svg>
+      <rect width="100%" height="100%" stroke-width="0" fill="url(#pattern-grid)" />
+    </svg>
+
+    <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:flex lg:items-center lg:gap-x-10 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+        <h2
+          class="py-4 text-3xl font-bold tracking-tight text-blue-100 sm:text-4xl mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-blue-300">
+          IPL Victory Predictor
+        </h2>
+
+        <form action="/predict" method="post" onsubmit="return validateTeams();" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Batting Team -->
+            <div class="relative">
+              <select name="batting_team" id="batting_team" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all">
+                <option value="" selected disabled hidden></option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Gujarat Titans">Gujarat Titans</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Delhi Capitals">Delhi Capitals</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Punjab Kings">Punjab Kings</option>
+              </select>
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Select Batting Team
+              </label>
+            </div>
+
+            <!-- Bowling Team -->
+            <div class="relative">
+              <select name="bowling_team" id="bowling_team" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all">
+                <option value="" selected disabled hidden></option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Gujarat Titans">Gujarat Titans</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Delhi Capitals">Delhi Capitals</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Punjab Kings">Punjab Kings</option>
+              </select>
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Select Bowling Team
+              </label>
+            </div>
+
+            <!-- Venue -->
+            <div class="relative">
+              <select name="selected_city" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all">
+                <option value="" selected disabled hidden></option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+                <option value="Indore">Indore</option>
+                <option value="Durban">Durban</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Dharamsala">Dharamsala</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Mohali">Mohali</option>
+                <option value="Pune">Pune</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Port Elizabeth">Port Elizabeth</option>
+                <option value="Centurion">Centurion</option>
+                <option value="Raipur">Raipur</option>
+                <option value="Sharjah">Sharjah</option>
+                <option value="Cuttack">Cuttack</option>
+                <option value="Johannesburg">Johannesburg</option>
+                <option value="Cape Town">Cape Town</option>
+                <option value="East London">East London</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Kimberley">Kimberley</option>
+                <option value="Bloemfontein">Bloemfontein</option>
+              </select>
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Select Venue
+              </label>
+            </div>
+
+            <!-- Target -->
+            <div class="relative">
+              <input type="number" name="target" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all"
+                placeholder=" ">
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Target
+              </label>
+            </div>
+
+            <!-- Score -->
+            <div class="relative">
+              <input type="number" name="score" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all"
+                placeholder=" ">
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Current Score
+              </label>
+            </div>
+
+            <!-- Balls Left -->
+            <div class="relative">
+              <input type="number" name="balls_left" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all"
+                placeholder=" ">
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Balls Left
+              </label>
+            </div>
+
+            <!-- Wickets -->
+            <div class="relative">
+              <input type="number" name="wickets" required
+                class="peer p-4 block w-full bg-blue-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white focus:ring-2 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 transition-all"
+                placeholder=" " min="0" max="10">
+              <label
+                class="absolute top-0 start-0 p-4 h-full truncate pointer-events-none transition ease-in-out duration-100 border border-transparent text-blue-300 peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-blue-200 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-blue-200">
+                Wickets Down
+              </label>
+            </div>
+          </div>
+
+          <button type="submit"
+            class="w-full md:w-auto px-8 py-4 rounded-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-blue-900">
+            Predict Your Victory
+          </button>
+        </form>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow flex justify-center lg:justify-end">
+        <svg viewBox="0 0 366 729" role="img" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
+          <title>App screenshot</title>
+          <defs>
+            <clipPath id="phone-screen">
+              <rect width="316" height="684" rx="36" />
+            </clipPath>
+          </defs>
+          <path fill="#9e224b"
+            d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z" />
+          <path fill="#111827"
+            d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" />
+          <foreignObject width="316" height="684" transform="translate(24 24)" clip-path="url(#phone-screen)">
+            <div
+              style="width:100%;height:100%;background:linear-gradient(180deg, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
+              <div style="padding:20px;display:flex;flex-direction:column;height:100%;justify-content:space-between;">
+                <div style="text-align:center;">
+                  <h3 style="color:white;font-size:24px;margin-top:40px;font-weight:bold;">IPL PREDICTOR</h3>
+                  <p style="color:white;margin-top:10px;">Your match analysis</p>
+                </div>
+                <div
+                  style="background:rgba(255,255,255,0.15);border-radius:16px;padding:20px;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.3);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+                    <span style="color:rgba(255,255,255,0.8);">Mumbai Indians</span>
+                    <span style="color:white;font-weight:bold;">76%</span>
+                  </div>
+                  <div
+                    style="width:100%;height:8px;background:rgba(255,255,255,0.2);border-radius:4px;overflow:hidden;">
+                    <div
+                      style="width:76%;height:100%;background:linear-gradient(90deg,#ff6b6b,#ffb347);border-radius:4px;">
+                    </div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:20px;margin-bottom:10px;">
+                    <span style="color:rgba(255,255,255,0.8);">Chennai Super Kings</span>
+                    <span style="color:white;font-weight:bold;">24%</span>
+                  </div>
+                  <div
+                    style="width:100%;height:8px;background:rgba(255,255,255,0.2);border-radius:4px;overflow:hidden;">
+                    <div
+                      style="width:24%;height:100%;background:linear-gradient(90deg,#4facfe,#00f2fe);border-radius:4px;">
+                    </div>
+                  </div>
+                </div>
+                <div style="padding:20px 0;">
+                  <button
+                    style="width:100%;padding:14px;background:linear-gradient(90deg,#ff6b6b,#ffb347);border:none;border-radius:8px;color:white;font-weight:bold;font-size:16px;">
+                    PREDICT AGAIN
+                  </button>
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#030619] py-8">
+    <div class="mx-auto max-w-7xl px-6 md:flex md:items-center md:justify-between lg:px-8">
+      <div class="flex justify-center space-x-6 md:order-2">
+        <p class="text-center text-xs leading-5 text-gray-400">
+          © 2025 IPL Victory Predictor. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+>>>>>>> master
 </html>
